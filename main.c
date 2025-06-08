@@ -7,13 +7,8 @@
 
 #define PI 3.14159265358979323846f
 
-typedef struct{
-    int x;
-    int y;
-} Data;
-
 typedef struct Node{
-    Data data;
+    int functionId;
     struct Node *next;
 } Node;
 
@@ -21,10 +16,12 @@ typedef Node *nodePtr;
 
 nodePtr firstNode = NULL;
 
-void append(nodePtr *firstNode, Data data){
+int selectedFunction;
+int counter = -4;
+
+void append(nodePtr *firstNode, int functionId){
     Node *newNode = (Node*)malloc(sizeof(Node));
-    newNode->data.x = data.x;
-    newNode->data.y = data.y;
+    newNode->functionId = functionId;
     newNode->next = NULL;
 
     if((*firstNode) == NULL){
@@ -35,6 +32,30 @@ void append(nodePtr *firstNode, Data data){
 
         current->next = newNode;
     }
+}
+
+bool isRemoved(nodePtr *firstNode, int functionId){
+    if((*firstNode) == NULL) return false;
+
+    if((*firstNode)->functionId == functionId){
+        nodePtr tmp = (*firstNode);
+        (*firstNode) = (*firstNode)->next;
+        free(tmp);
+        return true;
+    }
+
+    nodePtr current = (*firstNode);
+    while(current->next != NULL){
+        if(current->next->functionId == functionId){
+            nodePtr tmp = current->next;
+            current->next = tmp->next;
+            free(tmp);
+            return true;
+        }
+        current = current->next;
+    }
+
+    return false;
 }
 
 
@@ -48,8 +69,8 @@ void freeList(nodePtr firstNode){
 }
 
 
-const int screen_width = 800;
-const int screen_height = 450;
+const int screen_width = 1100;
+const int screen_height = 550;
 const int camera_width = screen_width;
 const int camera_height = screen_height;
 
@@ -63,36 +84,59 @@ static float Clamp(float value, float min, float max) {
 }
 
 
-int selectedFunction = 0;
+void drawFunctions(nodePtr firstNode){
+    Color color = RED;
 
-void drawFunction(int choice){
-    for(int x = 0; x < screen_width - 80; x++){
-        float fx1 = (float)x * (4 * PI) / (screen_width - 80);
-        float fx2 = (float)(x + 1) * (4 * PI) / (screen_width - 80);
+    while(firstNode != NULL){
+        for(int x = -screen_width; x < screen_width; x++){
+            float fx1 = ((float)x / screen_width) * 8 * PI - 4 * PI;
+            float fx2 = ((float)(x + 1) / screen_width) * 8 * PI - 4 * PI;
 
-        float fy1;
-        float fy2;
+            float fy1;
+            float fy2;
 
-        switch(choice){
-            case 1:
-                fy1 = sinf(fx1);
-                fy2 = sinf(fx2);
-                break;
 
-            case 2:
-                fy1 = cosf(fx1);
-                fy2 = cosf(fx2);
-                break;
+            // Select function
+            switch(firstNode->functionId){
+                case 1:
+                    fy1 = sinf(fx1);
+                    fy2 = sinf(fx2);
+                    color = RED;
+                    break;
+
+                case 2:
+                    fy1 = cosf(fx1);
+                    fy2 = cosf(fx2);
+                    color = BLUE;
+                    break;
+
+                case 3:
+                    fy1 = exp(fx1);
+                    fy2 = exp(fx2);
+                    color = PINK;
+                    break;
+
+                case 4:
+                    fy1 = tan(fx1);
+                    fy2 = tan(fx2);
+                    color = MAROON;
+                    break;
+
+                default:
+                    continue;
+            }
+
+            int screenY1 = screen_height / 2 - (int)(fy1 * 100);
+            int screenY2 = screen_height / 2 - (int)(fy2 * 100);
+
+            DrawLineEx((Vector2){x, screenY1},
+                       (Vector2){x + 1, screenY2},
+                       3.0f, color);
         }
-
-        int screenY1 = screen_height / 2 - (int)(fy1 * 100);
-        int screenY2 = screen_height / 2 - (int)(fy2 * 100);
-
-        DrawLine(x + 40, screenY1, x + 41, screenY2, RED);
-        DrawLineEx((Vector2){x + 40, screenY1},
-                   (Vector2){x + 41, screenY2},
-                   3.0f, RED);
+        firstNode = firstNode->next;
     }
+
+
 }
 
 
@@ -103,7 +147,8 @@ int main(void){
 
     // Inicjalizacja kamery
     camera.zoom = 1.0f; // Domyslny zoom
-
+    camera.target.x = -(screen_width / 2);
+    camera.target.y = 0;
     camera.rotation = 0.0f;
 
     // Inicjalizacja poruszania sie po planszy
@@ -153,25 +198,48 @@ int main(void){
 
             BeginMode2D(camera);
 
-                DrawLine(40, screen_height / 2, screen_width - 40, screen_height / 2, BLACK); // Oœ X
-                DrawLine(40, 40, 40, screen_height - 40, BLACK); // OŒ y
+                DrawLine(-screen_width, screen_height / 2, screen_width, screen_height / 2, BLACK); // Oœ X
+                DrawLine(0, 40, 0, screen_height - 40, BLACK); // OŒ y
 
+                // Podpisy osi
                 DrawText("x", screen_width - 40, screen_height / 2, 20, BLACK);
                 DrawText("y", 20, 40, 20, BLACK);
 
                 if(IsKeyPressed(KEY_ONE)) selectedFunction = 1;
                 else if (IsKeyPressed(KEY_TWO)) selectedFunction = 2;
+                else if (IsKeyPressed(KEY_THREE)) selectedFunction = 3;
+                else if (IsKeyPressed(KEY_FOUR)) selectedFunction = 4;
 
-                if(selectedFunction > 0) drawFunction(selectedFunction);
+                if(selectedFunction > 0) {
+                    if(!isRemoved(&firstNode, selectedFunction)){
+                        append(&firstNode, selectedFunction);
+                    }
+
+                    selectedFunction = 0;
+                }
+
+                drawFunctions(firstNode);
+
+                for(int x = -screen_width; x <= screen_width; x += screen_width / 4){
+                    DrawLineEx((Vector2){x, screen_height / 2 + 10},
+                           (Vector2){x, screen_height / 2 - 10},
+                           2.0f, BLACK);
+                }
 
             EndMode2D();
 
             Vector2 mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), camera);
             DrawText("1. Sin(x)", 10, 10, 20, BLACK);
             DrawText("2. Cos(x)", 10, 40, 20, BLACK);
+            DrawText("3. e^x", 10, 70, 20, BLACK);
+            DrawText("4. Tan(x)", 10, 100, 20, BLACK);
+
+            DrawText(TextFormat("X: %.1f, Y: %.1f", GetMousePosition().x, GetMousePosition().y), 300, 10, 20, BLACK);
 
         EndDrawing();
     }
+
+    freeList(firstNode);
 
     CloseWindow();
 
