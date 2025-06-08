@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1749395103 source:c:\users\karol\onedrive\pulpit\psk informatyka semestr 2\pp projekt\main\main.c
+	"raylib.h"
+	"rlgl.h"
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
