@@ -1,0 +1,54 @@
+﻿  coordinate_system.c
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\coordinate_system.h(46,6): warning C4030: pierwsza formalna lista parametrów dłuższa niż druga lista
+  (kompilowanie pliku źródłowego „coordinate_system.c”)
+  
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\coordinate_system.h(46,6): warning C4028: formalny parametr 1 różni się od deklaracji
+  (kompilowanie pliku źródłowego „coordinate_system.c”)
+  
+  function_plotter.c
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\coordinate_system.h(46,6): warning C4030: pierwsza formalna lista parametrów dłuższa niż druga lista
+  (kompilowanie pliku źródłowego „function_plotter.c”)
+  
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\coordinate_system.h(46,6): warning C4028: formalny parametr 1 różni się od deklaracji
+  (kompilowanie pliku źródłowego „function_plotter.c”)
+  
+  main.c
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\coordinate_system.h(46,6): warning C4030: pierwsza formalna lista parametrów dłuższa niż druga lista
+  (kompilowanie pliku źródłowego „main.c”)
+  
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\coordinate_system.h(46,6): warning C4028: formalny parametr 1 różni się od deklaracji
+  (kompilowanie pliku źródłowego „main.c”)
+  
+  math_functions.c
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\math_functions.c(25,5): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\math_functions.c(171,28): warning C4566: znak przedstawiony przez nazwę zawierającą znaki uniwersalne "\u221A" nie może być przedstawiony w bieżącej stronie kodowej (1250)
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\math_functions.c(173,26): warning C4566: znak przedstawiony przez nazwę zawierającą znaki uniwersalne "\u00B2" nie może być przedstawiony w bieżącej stronie kodowej (1250)
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\math_functions.c(174,26): warning C4566: znak przedstawiony przez nazwę zawierającą znaki uniwersalne "\u00B3" nie może być przedstawiony w bieżącej stronie kodowej (1250)
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\math_functions.c(238,34): warning C4013: niezdefiniowany "Vector2Distance"; przy założeniu, że extern zwraca int
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\math_functions.c(238,34): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+  ui_interface.c
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(20,5): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(21,5): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(22,5): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(23,5): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(25,5): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(30,5): warning C4013: niezdefiniowany "HandleTextInput"; przy założeniu, że extern zwraca int
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(32,13): warning C4101: "mousePos": lokalna zmienna, do której nie istnieje odwołanie
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(55,5): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(119,5): warning C4013: niezdefiniowany "DrawFunctionControls"; przy założeniu, że extern zwraca int
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(120,5): warning C4013: niezdefiniowany "DrawWindowControls"; przy założeniu, że extern zwraca int
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(121,5): warning C4013: niezdefiniowany "DrawSettingsControls"; przy założeniu, że extern zwraca int
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(135,35): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(135,48): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(141,35): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(141,49): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(147,35): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(147,49): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(153,35): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(153,49): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(174,6): error C2371: "DrawFunctionControls": zmiana definicji; różne typy podstawowe
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(180,9): warning C4566: znak przedstawiony przez nazwę zawierającą znaki uniwersalne "\u221A" nie może być przedstawiony w bieżącej stronie kodowej (1250)
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(180,28): warning C4566: znak przedstawiony przez nazwę zawierającą znaki uniwersalne "\u00B2" nie może być przedstawiony w bieżącej stronie kodowej (1250)
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(180,38): warning C4566: znak przedstawiony przez nazwę zawierającą znaki uniwersalne "\u00B3" nie może być przedstawiony w bieżącej stronie kodowej (1250)
+C:\Users\kalcz\Documents\Projects\FunctionPlotter\FunctionPlotter\ui_interface.c(188,34): error C1075: „{”: nie znaleziono zgodnego tokenu
+  Generowanie kodu...
