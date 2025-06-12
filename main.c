@@ -17,7 +17,6 @@ typedef Node *nodePtr;
 nodePtr firstNode = NULL;
 
 int selectedFunction;
-int counter = -4;
 
 void append(nodePtr *firstNode, int functionId){
     Node *newNode = (Node*)malloc(sizeof(Node));
@@ -198,12 +197,35 @@ int main(void){
 
             BeginMode2D(camera);
 
-                DrawLine(-screen_width, screen_height / 2, screen_width, screen_height / 2, BLACK); // Oœ X
-                DrawLine(0, 40, 0, screen_height - 40, BLACK); // OŒ y
+                DrawLine(-screen_width, screen_height / 2, screen_width, screen_height / 2, BLACK); // OÅ“ X
+                DrawLine(0, 40, 0, screen_height - 40, BLACK); // OÅ’ y
 
                 // Podpisy osi
                 DrawText("x", screen_width - 40, screen_height / 2, 20, BLACK);
                 DrawText("y", 20, 40, 20, BLACK);
+
+                // Wyrysuj podpisy osi OX
+                DrawText("-4 pi", -1110, screen_height / 2 + 15, 14, BLACK);
+                DrawText("-3 pi", -835, screen_height / 2 + 15, 14, BLACK);
+                DrawText("-2 pi", -560, screen_height / 2 + 15, 14, BLACK);
+                DrawText("-1 pi", -285, screen_height / 2 + 15, 14, BLACK);
+                DrawText("0 pi", -10, screen_height / 2 + 15, 14, BLACK);
+                DrawText("1 pi", 265, screen_height / 2 + 15, 14, BLACK);
+                DrawText("2 pi", 540, screen_height / 2 + 15, 14, BLACK);
+                DrawText("3 pi", 815, screen_height / 2 + 15, 14, BLACK);
+                DrawText("4 pi", 1090, screen_height / 2 + 15, 14, BLACK);
+
+                // Wyrysuj podpisy osi OY
+                DrawLineEx((Vector2){-8, screen_height / 2 + 100},
+                           (Vector2){8, screen_height / 2 + 100},
+                           1.5f, BLACK);
+
+                DrawLineEx((Vector2){-8, screen_height / 2 - 100},
+                           (Vector2){8, screen_height / 2 - 100},
+                           1.5f, BLACK);
+
+                DrawText("1", -15, screen_height / 2 - 105, 14, BLACK);
+                DrawText("-1", -22, screen_height / 2 + 95, 14, BLACK);
 
                 if(IsKeyPressed(KEY_ONE)) selectedFunction = 1;
                 else if (IsKeyPressed(KEY_TWO)) selectedFunction = 2;
@@ -228,6 +250,7 @@ int main(void){
 
             EndMode2D();
 
+            // Wyrysuj menu
             Vector2 mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), camera);
             DrawText("1. Sin(x)", 10, 10, 20, BLACK);
             DrawText("2. Cos(x)", 10, 40, 20, BLACK);
