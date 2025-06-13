@@ -1,0 +1,108 @@
+##################################
+# General C/C++ build artifacts #
+##################################
+
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (incl. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+
+##################################
+# Visual Studio-specific ignores #
+##################################
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+x64/
+Release/
+Debug/
+*.tlog
+*.lastbuildstate
+*.log
+*.recipe
+
+# Auto recover files
+~*
+
+# VS browsing databases
+*.VC.db
+*.opendb
+
+# Ignore filters and .user files (optional, if auto-generated)
+*.vcxproj.user
+*.vcxproj.filters
+
+##################################
+# Raylib binaries (optional)     #
+##################################
+
+lib/raylib.dll
+lib/raylib.lib
+lib/raylibdll.lib
+
+##################################
+# Backup & temporary files       #
+##################################
+*.tmp
+*.bak
+*.old
+
+##################################
+# Others                         #
+##################################
+
+# Tree or directory listings
+tree.txt
