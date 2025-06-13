@@ -133,17 +133,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="coordinate_system.c" />
-    <ClCompile Include="function_plotter.c" />
+    <ClCompile Include="graph.c" />
     <ClCompile Include="main.c" />
-    <ClCompile Include="math_functions.c" />
-    <ClCompile Include="ui_interface.c" />
+    <ClCompile Include="utils.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="coordinate_system.h" />
-    <ClInclude Include="function_plotter.h" />
-    <ClInclude Include="math_functions.h" />
-    <ClInclude Include="ui_interface.h" />
+    <ClInclude Include="graph.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
